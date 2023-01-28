@@ -47,6 +47,7 @@ public class Commands implements CommandExecutor, TabCompleter {
         }
         if (!getCOMMAND_MAP().containsKey(args[0])) {
             sender.sendMessage(UNKNOWN_COMMAND);
+            return true;
         }
 
         // 第一个参数是 args[0]
