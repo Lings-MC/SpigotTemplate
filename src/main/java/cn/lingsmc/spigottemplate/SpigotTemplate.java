@@ -1,6 +1,7 @@
 package cn.lingsmc.spigottemplate;
 
 import cn.lingsmc.spigottemplate.commands.Commands;
+import cn.lingsmc.spigottemplate.listener.AnyListener;
 import cn.lingsmc.spigottemplate.utils.ConfigUtils;
 import lombok.Getter;
 import org.bukkit.command.PluginCommand;
@@ -14,9 +15,13 @@ public final class SpigotTemplate extends JavaPlugin {
     @Getter
     private static SpigotTemplate instance;
 
+    private static void initInstance() {
+        instance = JavaPlugin.getPlugin(SpigotTemplate.class);
+    }
+
     @Override
     public void onLoad() {
-        instance = this;
+        initInstance();
         ConfigUtils.initialize();
     }
 
@@ -29,6 +34,8 @@ public final class SpigotTemplate extends JavaPlugin {
         Commands commands = new Commands();
         command.setExecutor(commands);
         command.setTabCompleter(commands);
+        // init listeners
+        AnyListener.initialize();
     }
 
     @Override
