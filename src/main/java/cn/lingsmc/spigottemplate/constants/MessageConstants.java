@@ -27,6 +27,7 @@ public class MessageConstants {
                     String.format("§3§l----- %s指令 -----", plugin.getName()),
                     String.format("§b/%s %s §3- §a重载本插件", ALIAS, RELOAD),
             };
+
     private MessageConstants() {
     }
 }

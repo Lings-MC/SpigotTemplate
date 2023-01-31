@@ -17,6 +17,7 @@ public class CommandConstants {
     public static final String RELOAD = "reload";
     @Getter
     private static final Map<String, SubCommand> COMMAND_MAP = Maps.newHashMap();
+
     private CommandConstants() {
 
     }
