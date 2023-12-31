@@ -17,6 +17,7 @@ public class MessageConstants {
     public static final String UNKNOWN_COMMAND = "§c未知命令.";
     public static final String NO_PERMISSION = "§c你没有执行该命令的权限.";
     public static final String CONSOLE = "§c该命令必须由玩家执行.";
+    public static final String PLAYER_NOT_EXIST = "§c玩家不存在!";
     @Getter
     private static final List<String> ONLINE_PLAYERS = null;
     static SpigotTemplate plugin = SpigotTemplate.getInstance();
