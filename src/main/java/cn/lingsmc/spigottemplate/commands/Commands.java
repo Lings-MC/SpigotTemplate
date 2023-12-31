@@ -3,6 +3,7 @@ package cn.lingsmc.spigottemplate.commands;
 import cn.lingsmc.spigottemplate.commands.subcommands.HelpCommand;
 import cn.lingsmc.spigottemplate.commands.subcommands.ReloadCommand;
 import cn.lingsmc.spigottemplate.constants.MessageConstants;
+import cn.lingsmc.spigottemplate.utils.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -53,20 +54,22 @@ public class Commands implements CommandExecutor, TabCompleter {
 
         // 第一个参数是 args[0]
         SubCommand subCommand = getCOMMAND_MAP().get(args[0]);
-        subCommand.execute(sender, args);
+        final String[] finalArgs = StringUtils.toLowerCase(args);
+        subCommand.execute(sender, finalArgs);
         return true;
     }
 
     @Override
     public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, @NotNull String[] args) {
         List<String> list = new ArrayList<>();
+        final String[] finalArgs = StringUtils.toLowerCase(args);
         if (args.length == 1) {
             list = new ArrayList<>(getCOMMAND_MAP().keySet());
-            list.removeIf(s -> !s.startsWith(args[0]));
+            list.removeIf(s -> !s.startsWith(finalArgs[0]));
         } else {
-            SubCommand subCommand = getCOMMAND_MAP().get(args[0]);
+            SubCommand subCommand = getCOMMAND_MAP().get(finalArgs[0]);
             if (Objects.nonNull(subCommand)) {
-                list = subCommand.tabComplete(args);
+                list = subCommand.tabComplete(finalArgs);
             }
         }
         return list;
