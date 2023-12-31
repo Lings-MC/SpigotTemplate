@@ -44,7 +44,7 @@ public class Commands implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (args.length == 0) {
-            Arrays.asList(MessageConstants.getHELP_MESSAGE()).forEach(sender::sendMessage);
+            Arrays.asList(MessageConstants.getROOT_MESSAGE()).forEach(sender::sendMessage);
             return false;
         }
         if (!getCOMMAND_MAP().containsKey(args[0])) {
