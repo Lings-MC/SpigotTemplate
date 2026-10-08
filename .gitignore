@@ -28,3 +28,9 @@ hs_err_pid*
 target/
 out/
 *.pb
+
+# VS Code
+.vscode/
+
+# Maven shade
+dependency-reduced-pom.xml

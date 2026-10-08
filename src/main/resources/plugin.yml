@@ -1,5 +1,17 @@
 name: SpigotTemplate
 version: '${project.version}'
 main: cn.lingsmc.spigottemplate.SpigotTemplate
-api-version: 1.13
+api-version: '1.20'
 authors: [ Crsuh2er0 ]
+description: 泠氏 Spigot/Paper 插件开发模板
+
+commands:
+  st:
+    description: SpigotTemplate 主命令
+    usage: /st help
+    aliases: [ spigottemplate ]
+
+permissions:
+  spigottemplate.admin:
+    description: 允许执行插件管理命令（如 /st reload）
+    default: op
