@@ -35,7 +35,7 @@ public class Commands implements CommandExecutor, TabCompleter {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (args.length == 0) {
             Arrays.asList(MessageConstants.getRootMessage()).forEach(sender::sendMessage);
-            return false;
+            return true;
         }
 
         // 统一转小写后再分发，子命令名大小写不敏感
